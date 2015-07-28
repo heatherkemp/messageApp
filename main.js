@@ -6,6 +6,7 @@ var white = chalk.white;
 
 
 var server = net.createServer(function(connection){
+	connection.write("To leave a message, use following command:\n add yourName Message\n");
 	var data = fs.readFileSync("messages.json", "utf8");
 	var parsed = JSON.parse(data);
 	connection.setEncoding("utf8");
