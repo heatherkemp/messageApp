@@ -35,6 +35,8 @@ var server = net.createServer(function(connection){
 			//console.log(myJSON);
 			fs.writeFileSync("messages.json", myJSON);
 
+			connection.write("Thanks!  Your message has been added.")
+
 		} else if (array[0] === "read"){
 			parsed.forEach(function(message){
 				connection.write(white("ID: ") + green(message.id) + "\r\n" + white("From: ") + green(message.from) + "\r\n" + white("Message: ") + green(message.message) + "\r\n" + "\r\n");
